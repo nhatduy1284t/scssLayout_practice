@@ -1,0 +1,51 @@
+.intro {
+   background-image: url(../img/yellow_top_wave_01.png);
+   background-repeat: no-repeat;
+   background-size: contain;
+   background-position-x: 0rem;
+   background-position-y: -5px;
+   margin-bottom: 85px;
+   .container {
+      display: flex;
+      align-items: center;
+      padding-top: 80px;
+
+      .info {
+         p {
+            @include styleText($c-pink, 1.1rem, $fw-semiBold);
+         }
+         h1 {
+            font-size: 3.8rem;
+            @include styleText($c-black, 3.8rem, $fw-bold);
+         }
+      }
+   }
+}
+@media screen and (max-width: 1200px) {
+   .intro .container .info h1 {
+      font-size: 3.15rem;
+   }
+}
+@media screen and (max-width: 992px) {
+   .intro {
+      padding-left: 20px;
+      .container {
+         flex-direction: column;
+         max-width: 100%;
+         align-items: flex-start;
+         .info p {
+            font-size: 1rem;
+            margin-top: 25px;
+         }
+         .info h1 {
+            font-size: 3.15rem;
+         }
+      }
+   }
+}
+
+@media screen and (max-width: 576px) {
+   .intro img {
+      width:100%;
+   }
+}
