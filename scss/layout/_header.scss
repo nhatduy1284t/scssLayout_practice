@@ -29,7 +29,7 @@
          .header__navbar {
             a {
                margin-right: $spacing-2;
-               font-size: 13px;
+               font-size: $fs-2;
                font-weight: $fw-semiBold;
                color: $c-black;
                text-decoration: none;
@@ -43,7 +43,7 @@
             border: 1px solid $c-pink;
             border-radius: 25px;
             padding: 10px 20px;
-            font-size: 13.5px;
+            font-size: $fs-3;
             box-shadow: 0 0 0 30px #b61984 inset;
             color: white;
             @include styleText(white, 13.5px, $fw-semiBold);
@@ -57,7 +57,7 @@
             a {
                color: $c-black;
                transition: 0.4s;
-               font-size: 0.85rem;
+               font-size: $fs-4;
                margin-left: 9px;
                &:hover {
                   color: $c-pink;
@@ -102,7 +102,7 @@
                border: 1px solid $c-pink;
                border-radius: 25px;
                padding: 10px 20px;
-               font-size: 13.5px;
+               font-size: $fs-3;
                box-shadow: 0 0 0 30px #b61984 inset;
                margin-top: 30px;
                color: white;
@@ -116,7 +116,7 @@
          }
 
          .sidenav a {
-            font-size: 13px;
+            font-size: $fs-2;
             font-weight: $fw-semiBold;
             color: $c-black;
             text-decoration: none;
@@ -134,7 +134,7 @@
             position: absolute;
             top: 0;
             right: 25px;
-            font-size: 36px;
+            font-size: $fs-8;
             margin-left: 50px;
          }
 

@@ -12,18 +12,18 @@
 
       .info {
          p {
-            @include styleText($c-pink, 1.1rem, $fw-semiBold);
+            @include styleText($c-pink, $fs-intro-small, $fw-semiBold);
          }
          h1 {
-            font-size: 3.8rem;
-            @include styleText($c-black, 3.8rem, $fw-bold);
+            font-size: $fs-10;
+            @include styleText($c-black, $fs-10, $fw-bold);
          }
       }
    }
 }
 @media screen and (max-width: 1200px) {
    .intro .container .info h1 {
-      font-size: 3.15rem;
+      font-size: $fs-9;
    }
 }
 @media screen and (max-width: 992px) {
@@ -34,11 +34,11 @@
          max-width: 100%;
          align-items: flex-start;
          .info p {
-            font-size: 1rem;
+            font-size: $fs-5;
             margin-top: 25px;
          }
          .info h1 {
-            font-size: 3.15rem;
+            font-size: $fs-9;
          }
       }
    }

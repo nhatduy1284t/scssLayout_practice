@@ -48,7 +48,7 @@
           padding: 25px 15px;
           p {
              &:first-child {
-                @include styleText($c-pink, 12px, $fw-semiBold);
+                @include styleText($c-pink, $fs-1, $fw-semiBold);
                 margin-bottom: 0.7em;
              }
              &:last-child {

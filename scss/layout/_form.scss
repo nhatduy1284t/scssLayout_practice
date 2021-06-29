@@ -13,7 +13,7 @@
       //  }
       h1 {
          text-align: center;
-         font-size: 2.5rem;
+         font-size: $fs-7;
          font-weight: $fw-bold;
          margin-bottom: 60px;
          margin-top: 55px;
@@ -43,7 +43,7 @@
             display: flex;
             justify-content: space-between;
             i {
-               @include styleText($c-pink, 16px, $fw-light);
+               @include styleText($c-pink, $fs-normal, $fw-light);
                position: relative;
                top: 35px;
                left: 18px;
@@ -64,9 +64,9 @@
             border-radius: 30px;
             width: 95%;
             margin-right: 0 !important;
-            font-size: 12px;
+            font-size: $fs-1;
             &::placeholder {
-               @include styleText($c-black, 11px, $fw-regular);
+               @include styleText($c-black, $fs-input-placeholder, $fw-regular);
             }
             &:focus {
                border: 1px solid rgba(0, 0, 0, 0.5);
@@ -86,9 +86,9 @@
             border: 1px solid rgba(0, 0, 0, 0.1);
             border-radius: 30px;
             padding-left: 40px;
-            font-size: 12px;
+            font-size: $fs-1;
             &::placeholder {
-               @include styleText($c-black, 12px, $fw-regular);
+               @include styleText($c-black, $fs-1, $fw-regular);
             }
          }
 
@@ -96,10 +96,10 @@
             position: relative;
             top: 30px;
             left: 18px;
-            @include styleText($c-pink, 13px, $fw-semiBold);
+            @include styleText($c-pink, $fs-2, $fw-semiBold);
          }
          button {
-            @include styleText(white, 13px, $fw-semiBold);
+            @include styleText(white, $fs-2, $fw-semiBold);
             border-radius: 25px;
             box-shadow: 0 0 0 30px #b61984 inset;
             border: 1px solid $c-pink;
@@ -108,7 +108,7 @@
             margin-top: 45px;
             &:hover {
                box-shadow: 0 0 0 0px #b61984 inset;
-               @include styleText($c-pink, 13px, $fw-semiBold);
+               @include styleText($c-pink, $fs-2, $fw-semiBold);
             }
          }
       }
@@ -124,7 +124,7 @@
             width: 55%;
          }
          h1 {
-            font-size: 2rem;
+            font-size: $fs-6;
          }
          form {
             button {
