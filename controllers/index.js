@@ -1,5 +1,4 @@
-let bodyWidth = document.querySelector("body").offsetWidth;
-console.log(bodyWidth)
+
 //while(false)
 {
    document.querySelector(".footer__email").onfocus = function () {
@@ -120,3 +119,16 @@ console.log(bodyWidth)
       window.removeEventListener("keydown", preventDefaultForScrollKeys, false);
    }
 }
+
+
+
+$(window).resize(function () {
+   let bodyWidth = document.querySelector("body").offsetWidth;
+   if(bodyWidth>1200) {
+      let arrTag = document.querySelectorAll(".intro,.team,.form,.footer");
+      for (let tag of arrTag) {
+         tag.classList.remove('transform320');
+      }
+      enableScroll();
+   }
+});

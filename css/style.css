@@ -436,6 +436,8 @@ html {
   margin-bottom: 20px;
   position: relative;
   z-index: 50;
+  -webkit-transform: translateX(0);
+          transform: translateX(0);
 }
 
 .form .container {
