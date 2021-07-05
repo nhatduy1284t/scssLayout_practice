@@ -1,79 +1,75 @@
-
 .team {
-   //  background-image: url(../img/Violet_top_left_wave.png);
-   //  background-repeat: repeat;
-   //  background-size: cover;
-   background:#dcd1f3;
+   transform: translateX(0);
+   background: #dcd1f3;
    .background--1 {
-      top:0;
-      left:0;
-      transform:translateY(-100%);
+      top: 0;
+      left: 0;
+      transform: translateY(-100%);
    }
    .background--2 {
-      bottom:0;
-      right:0;
+      bottom: 0;
+      right: 0;
    }
 
    .background__2 {
       background-image: url(../../img/Wave_White_bottom_right_shape_01.png);
       background-repeat: no-repeat;
-      background-size: cover; 
-      width:100%;
-      height:100%;
+      background-size: cover;
+      width: 100%;
+      height: 100%;
    }
-    .img__wrapper {
-       overflow: hidden;
-       img {
-          width: 100%;
-          transition: all 0.4s linear;
-          &:hover {
-             transform: scale3d(1.05, 1.05, 1.05);
-          }
-       }
-    }
-    .item {
-       margin-bottom: 40px;
-       overflow: hidden;
-       border-radius: 20px;
-       transition: all 0.4s linear;
-       &:hover {
-          box-shadow: 0px 20px 25px 10px rgba(0, 0, 0, 0.1);
-       }
-       .col-3 {
-          padding: 0 20px;
-       }
-       .info {
-          background-color: white;
-          text-align: center;
-          padding: 25px 15px;
-          p {
-             &:first-child {
-                @include styleText($c-pink, $fs-1, $fw-semiBold);
-                margin-bottom: 0.7em;
-             }
-             &:last-child {
-                @include styleText($c-black, 14px, $fw-regular);
-             }
-          }
-          h1 {
-             @include styleText($c-black, 1.55rem, $fw-bold);
-             margin-bottom: 10px;
-          }
-       }
-    }
- }
- @media screen and (max-width: 992px) {
+   .img__wrapper {
+      overflow: hidden;
+      img {
+         width: 100%;
+         transition: all 0.4s linear;
+         &:hover {
+            transform: scale3d(1.05, 1.05, 1.05);
+         }
+      }
+   }
+   .item {
+      margin-bottom: 40px;
+      overflow: hidden;
+      border-radius: 20px;
+      transition: all 0.4s linear;
+      &:hover {
+         box-shadow: 0px 20px 25px 10px rgba(0, 0, 0, 0.1);
+      }
+      .col-3 {
+         padding: 0 20px;
+      }
+      .info {
+         background-color: white;
+         text-align: center;
+         padding: 25px 15px;
+         p {
+            &:first-child {
+               @include styleText($c-pink, $fs-1, $fw-semiBold);
+               margin-bottom: 0.7em;
+            }
+            &:last-child {
+               @include styleText($c-black, 14px, $fw-regular);
+            }
+         }
+         h1 {
+            @include styleText($c-black, 1.55rem, $fw-bold);
+            margin-bottom: 10px;
+         }
+      }
+   }
+}
+@media screen and (max-width: 992px) {
    .team {
-      display:block;
+      display: block;
       .container {
-         max-width:100%;
+         max-width: 100%;
       }
       .list {
-         padding-top:30px;
+         padding-top: 30px;
       }
       .background--1 {
-         transform:translateY(-99%);
+         transform: translateY(-99%);
       }
    }
-   
- }
+}

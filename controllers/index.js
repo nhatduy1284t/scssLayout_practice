@@ -1,74 +1,122 @@
-document.querySelector(".footer__email").onfocus = function () {
-   var x = document.querySelector(".footer__email");
-   x.style.border = "1px solid white";
-};
+let bodyWidth = document.querySelector("body").offsetWidth;
+console.log(bodyWidth)
+//while(false)
+{
+   document.querySelector(".footer__email").onfocus = function () {
+      var x = document.querySelector(".footer__email");
+      x.style.border = "1px solid white";
+   };
 
-document.querySelector(".footer__email").onblur = function () {
-   var x = document.querySelector(".footer__email");
-   x.style.border = null;
-};
+   document.querySelector(".footer__email").onblur = function () {
+      var x = document.querySelector(".footer__email");
+      x.style.border = null;
+   };
 
-window.onscroll = function () {
-   scrollFunction();
-};
+   window.onscroll = function () {
+      scrollFunction();
+   };
 
-function scrollFunction() {
-   var header = document.querySelector(".header");
-   var headerContainer = document.querySelector("#header__container");
-   var x = document.body.scrollTop;
-   var y = document.documentElement.scrollTop;
-   if ((x >= 30 && x <= 100) || (y >= 30 && y <= 100)) {
-      document.querySelector("#header__container").style.height = "0%";
-      console.log("123");
+   function openNav() {
+      document.getElementById("mySidenav").style.transform = "translateX(0)";
+      let arrTag = document.querySelectorAll(".intro,.team,.form,.footer");
+      for (let tag of arrTag) {
+         tag.style.transition = "all 0.7s ease";
+         // tag.style.transform = "translateX(320px)";
+         tag.classList.add('transform320');
+      }
+      var closebtn = document.querySelector(".closebtn");
+      closebtn.style.visibility = "visible";
+
+      disableScroll();
    }
-   if (x > 200 || y > 200) {
-      header.style.position = "fixed";
-      header.style.zIndex = "999";
-      header.style.backgroundColor = "white";
-      document.querySelector("#header__logo").style.visibility = "hidden";
-      headerContainer.style.height = "100%";
-   } else {
-      header.style.position = null;
+   function closeNav() {
+      document.getElementById("mySidenav").style.transform = "translateX(-320px)";
+      let arrTag = document.querySelectorAll(".intro,.team,.form,.footer");
+      for (let tag of arrTag) {
+         tag.style.transition = "all 0.7s ease";
+         // tag.style.transform = "translateX(0px)";
+         tag.classList.remove('transform320');
+      }
+      var closebtn = document.querySelector(".closebtn");
+      closebtn.style.visibility = "hidden";
 
-      header.style.backgroundColor = "transparent";
-      document.querySelector("#header__logo").style.visibility = "visible";
-      headerContainer.style.height = "100%";
+      enableScroll();
+   }
+
+   function scrollFunction() {
+      let header = document.querySelector(".header");
+      let body = document.querySelector("body");
+      let width = body.offsetWidth;
+      if (width > 1200) {
+         if (window.pageYOffset <= 150) {
+            header.style.position = "absolute";
+            header.style.transform = "translateY(0)";
+            header.style.backgroundColor = "transparent";
+         } else if (window.pageYOffset > 150 && window.pageYOffset <= 500) {
+            header.style.position = "fixed";
+            header.style.transform = "translateY(-100%)";
+            header.style.backgroundColor = "white";
+         } else if (window.pageYOffset > 500) {
+            header.style.transform = "translateY(0)";
+         }
+      } else if (width < 1200) {
+         if (document.getElementById("mySidenav").style.transform == "translateX(0px)") {
+            return;
+         }
+
+         if (window.pageYOffset <= 150) {
+            header.style.removeProperty("transform");
+         } else if (window.pageYOffset > 150 && window.pageYOffset <= 500) {
+            header.style.position = "fixed";
+            header.style.transform = "translateY(-100%)";
+         } else if (window.pageYOffset > 500) {
+            header.style.removeProperty("transform");
+         }
+      }
+   }
+
+   /*--------------------------------*/
+
+   var keys = { 37: 1, 38: 1, 39: 1, 40: 1 };
+
+   function preventDefault(e) {
+      e.preventDefault();
+   }
+
+   function preventDefaultForScrollKeys(e) {
+      if (keys[e.keyCode]) {
+         preventDefault(e);
+         return false;
+      }
+   }
+
+   var supportsPassive = false;
+   try {
+      window.addEventListener(
+         "test",
+         null,
+         Object.defineProperty({}, "passive", {
+            get: function () {
+               supportsPassive = true;
+            },
+         })
+      );
+   } catch (e) {}
+
+   var wheelOpt = supportsPassive ? { passive: false } : false;
+   var wheelEvent = "onwheel" in document.createElement("div") ? "wheel" : "mousewheel";
+
+   function disableScroll() {
+      window.addEventListener("DOMMouseScroll", preventDefault, false); // older FF
+      window.addEventListener(wheelEvent, preventDefault, wheelOpt); // modern desktop
+      window.addEventListener("touchmove", preventDefault, wheelOpt); // mobile
+      window.addEventListener("keydown", preventDefaultForScrollKeys, false);
+   }
+
+   function enableScroll() {
+      window.removeEventListener("DOMMouseScroll", preventDefault, false);
+      window.removeEventListener(wheelEvent, preventDefault, wheelOpt);
+      window.removeEventListener("touchmove", preventDefault, wheelOpt);
+      window.removeEventListener("keydown", preventDefaultForScrollKeys, false);
    }
 }
-
-
-function openNav() {
-   document.getElementById("mySidenav").style.width = "320px";
-   document.getElementById("main").style.marginLeft = "320px";
-   //  document.getElementById("main").style.transform = "translateX(320px)";
-   var closebtn =document.querySelector(".closebtn");
-  closebtn.style.visibility="visible";
- }
- 
- function closeNav() {
-   document.getElementById("mySidenav").style.width = "0";
-   document.getElementById("main").style.marginLeft= "0";
-   // document.getElementById("main").style.transform = "translateX(0px)";
-   var closebtn =document.querySelector(".closebtn");
-   closebtn.style.visibility="hidden";
- }
-
-document.querySelector("#btnMenuBar").onclick=function() {
-   document.querySelector(".header__info").style.display="block";
-}
-
-// function openNav() {
-//    // document.getElementById("mySidenav").style.transform = "translateX(0%)";
-//    document.getElementById("main").style.marginLeft = "320px";
-//    //   document.getElementById("main").style.transform = "translateX(320px)";
-//    var closebtn =document.querySelector(".closebtn");
-//   closebtn.style.visibility="visible";
-//  }
- 
-//  function closeNav() {
-//    document.getElementById("mySidenav").style.transform = "translateX(-100%)";
-//    document.getElementById("main").style.marginLeft= "0";
-//    //  document.getElementById("main").style.transform = "translateX(-100%)";
-//    var closebtn =document.querySelector(".closebtn");
-//    closebtn.style.visibility="hidden";
-//  }
