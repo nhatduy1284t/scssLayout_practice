@@ -129,6 +129,7 @@ $(window).resize(function () {
       for (let tag of arrTag) {
          tag.classList.remove('transform320');
       }
+      document.querySelector('.closebtn').click();
       enableScroll();
    }
 });
